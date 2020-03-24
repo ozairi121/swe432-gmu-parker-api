@@ -16,7 +16,7 @@ public class Hello extends HttpServlet // Inheriting from HttpServlet makes this
 {
 
   // Location of servlet.
-  static String Domain  = "localhost:8080";
+  static String Domain  = "gmu-parking-reviewer.herokuapp.com";
   static String Path    = "/";
   static String Servlet = "";
 
@@ -118,7 +118,7 @@ public class Hello extends HttpServlet // Inheriting from HttpServlet makes this
     out.println("multiple submit buttons.");
     out.println("</p>");
     out.print  ("<form method=\"post\"");
-    out.println(" action=\"http://" + Domain + Path + Servlet + "\">");
+    out.println(" action=\"https://" + Domain + Path + Servlet + "\">");
     out.println("");
     out.println(" <table>");
     out.println("  <tr>");
