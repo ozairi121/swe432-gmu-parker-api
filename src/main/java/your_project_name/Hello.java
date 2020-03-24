@@ -112,7 +112,7 @@ public class Hello extends HttpServlet // Inheriting from HttpServlet makes this
   private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
   {
     out.println("<body>");
-    out.println("<h3>Omar Zairi</h3>");
+    out.println("<h3>Author: Omar Zairi</h3>");
     out.println("<p>");
     out.println("A simple example that demonstrates how to operate with");
     out.println("multiple submit buttons.");
