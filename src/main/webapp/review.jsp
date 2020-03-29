@@ -8,21 +8,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>GMU Parking Lot Reviews and Ratings | George Mason University</title>
-    <link rel="shortcut icon" href="./static/img/gmu-logo.png">
-    <link href="./static/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./gmu-logo.png">
+    <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
 <div class='header container p-0 w-100 m-0 sticky-top mw-none'>
     <div class='row py-2'>
         <div class='col-lg-2' onclick="window.location = '/'">
-            <img class='float-right pointer' height='40px' src='./static/img/gmu-logo.png' alt='George Mason University logo' />
+            <img class='float-right pointer' height='40px' src='./gmu-logo.png' alt='George Mason University logo' />
         </div>
         <div class='col-lg-5 pt-2' onclick="window.location = '/'">
             <h4 class='pointer'>GMU Parking Lot Reviewer</h4>
         </div>
         <div class='col-lg-4 pr-5 pt-1'>
-            <button class='float-right mt-0 mr-3 btn btn-success' onclick='window.location = "/"'>
+            <button class='float-right mt-0 mr-3 btn btn-success' onclick='location.reload()'>
                 New review +
             </button>
         </div>
