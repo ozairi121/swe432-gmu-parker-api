@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/review"}
     )
 
-public class HelloServlet extends HttpServlet
+public class ReviewServlet extends HttpServlet
 {
   @Override
    protected void doPost  (HttpServletRequest req, HttpServletResponse res)
