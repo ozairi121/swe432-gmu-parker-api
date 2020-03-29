@@ -36,7 +36,7 @@
   <p class='center w-25 py-2 pb-4'>This app is meant to let students write reviews for the parking lots on George Mason's Fairfax campus. We hope this can help other students know what to expect before they go to a certain parking lot.</p>
 </div>
 
-<form id='parking-review-form' action="http://localhost:8080/result" method="post" class='side-shadow w-75 center border-right border-left px-5 pb-5 mb-5'>
+<form id='parking-review-form' action="https://gmu-parking-reviewer.herokuapp.com/result" method="post" class='side-shadow w-75 center border-right border-left px-5 pb-5 mb-5'>
   <h6 class='m-2 pt-5'>
 	    <span class='ml-5 border rounded p-2 text-danger'>
 	    	<strong>1</strong>
