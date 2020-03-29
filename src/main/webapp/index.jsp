@@ -19,7 +19,12 @@
       <img class='float-right pointer' height='40px' src='./gmu-logo.png' alt='George Mason University logo' />
     </div>
     <div class='col-lg-5 pt-2' onclick="window.location = '/'">
-      <h4 class='pointer'>GMU Parking Lot Reviewer</h4>
+      <h4 class='pointer'>
+        GMU Parking Lot Reviewer
+        <small class="ml-4">
+          Author: Omar Zairi
+        </small>
+      </h4>
     </div>
     <div class='col-lg-4 pr-5 pt-1'>
       <button class='float-right mt-0 mr-3 btn btn-success' onclick='window.location = "/"'>
@@ -294,7 +299,7 @@
 
 </form>
 
-<div class='footer'>
+<div class='footer w-100 text-center mt-2'>
 </div>
 
 </body>

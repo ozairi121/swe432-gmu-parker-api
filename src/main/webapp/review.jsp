@@ -48,6 +48,7 @@
 </div>
 
 <div class='footer'>
+    <h4>Author: Omar Zairi</h4>
 </div>
 
 </body>
