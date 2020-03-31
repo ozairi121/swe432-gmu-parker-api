@@ -58,8 +58,8 @@
     </h6>
 
     <div class="lot-list-container mt-5" onscroll="scrollBar()">
-      <div class='container lot-list text-center' id='lot-list' style="width: 1300px">
-        <div class='row p-2' style="width: 1300px">
+      <div class='container lot-list text-center' id='lot-list'>
+        <div class='row p-2'>
           <div class='col d-inline text-nowrap px-3' onclick='setLot(1, "Lot A")'>
             Lot A
           </div>
@@ -465,6 +465,10 @@
   }
   input[type='checkbox'] {
     cursor: pointer !important;
+  }
+  .lot-list,
+  .lot-list .row {
+    width: 1300px;
   }
   .progress-container {
     width: 100%;
