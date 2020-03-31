@@ -35,7 +35,7 @@
   </div>
 
   <div id="masthead" style="background: black; color: white">
-    <p class='center w-25 py-2 pb-2'>This app is meant to let students write reviews for the parking lots on George Mason's Fairfax campus. We hope this can help other students know what to expect before they go to a certain parking lot.</p>
+    <p class='center w-50 py-3 pb-2'>This app is meant to let students write reviews for the parking lots on George Mason's Fairfax campus. We hope this can help other students know what to expect before they go to a certain parking lot.</p>
   </div>
 
   <form id='parking-review-form' action="https://gmu-parking-reviewer.herokuapp.com/review" method="post" class='side-shadow w-75 center border-right border-left px-5 pb-5 mb-5'>
@@ -58,39 +58,44 @@
           </span>
     </h6>
 
-    <div class='container lot-list mt-5 text-center' id='lot-list'>
-      <div class='row'>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(1, "Lot A")'>
-          Lot A
-        </div>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(2, "Lot C")'>
-          Lot C
-        </div>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(3, "Lot I")'>
-          Lot I
-        </div>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(4, "Lot J")'>
-          Lot J
-        </div>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(5, "Lot K")'>
-          Lot K
-        </div>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(6, "Lot L")'>
-          Lot L
-        </div>
-        <div class='col d-inline text-nowrap px-2' onclick='setLot(7, "Lot R")'>
-          Lot R
-        </div>
-        <div class='col d-inline text-nowrap px-3' onclick='setLot(8, "PV Lot")'>
-          PV Lot
-        </div>
-        <div class='col d-inline text-nowrap px-3' onclick='setLot(9, "Shenandoah")'>
-          Shenandoah
-        </div>
-        <div class='col d-inline text-nowrap px-3' onclick='setLot(10, "Rappahannock River")'>
-          Rappahannock River
+    <div class="lot-list-container mt-5" onscroll="scrollBar()">
+      <div class='container lot-list text-center' id='lot-list' style="width: 1300px">
+        <div class='row p-2' style="width: 1300px">
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(1, "Lot A")'>
+            Lot A
+          </div>
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(2, "Lot C")'>
+            Lot C
+          </div>
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(3, "Lot I")'>
+            Lot I
+          </div>
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(4, "Lot J")'>
+            Lot J
+          </div>
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(5, "Lot K")'>
+            Lot K
+          </div>
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(6, "Lot L")'>
+            Lot L
+          </div>
+          <div class='col d-inline text-nowrap px-3' onclick='setLot(7, "Lot R")'>
+            Lot R
+          </div>
+          <div class='col d-inline text-nowrap px-4' onclick='setLot(8, "PV Lot")'>
+            PV Lot
+          </div>
+          <div class='col d-inline text-nowrap px-4' onclick='setLot(9, "Shenandoah")'>
+            Shenandoah
+          </div>
+          <div class='col d-inline text-nowrap px-4' onclick='setLot(10, "Rappahannock River")'>
+            Rappahannock River
+          </div>
         </div>
       </div>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
     </div>
 
     <h6 class='m-2 mt-5 pt-5'>
