@@ -1,9 +1,4 @@
-function scrollBar() {
-  var bar = document.getElementById("myBar");
-  var div = document.getElementsByClassName("lot-list-container")[0]
-  var width = 1300 - div.offsetWidth;
-  bar.style.width = (div.scrollLeft / width) * 100 + "%";
-}
+
 // Save the selected rating and lot DOMs to remove css classes when unselected
 let lastRating = lastLot = null;
 
@@ -71,5 +66,16 @@ $("#parking-review-form").submit( function(eventObj) {
     .appendTo(this);
   return true;
 });
+
+function scrollBar() {
+  var bar = document.getElementById("myBar");
+  var div = document.getElementsByClassName("lot-list-container")[0]
+  var width = 1300 - div.offsetWidth;
+  var scrollPct = (div.scrollLeft / width) * 100;
+  if (scrollPct < 5)
+    bar.style.width = "5%";
+  else
+    bar.style.width = scrollPct + "%";
+}
 
 
