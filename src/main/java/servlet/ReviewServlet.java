@@ -63,7 +63,8 @@ public class ReviewServlet extends HttpServlet
      }
      responseStr.append("</table>");
 
-     req.setAttribute("params", responseStr); // Will be available as ${products} in JSP
+     req.setAttribute("params", responseStr); // Will be available as ${params} in JSP
+
      req.getRequestDispatcher("/review.jsp").forward(req, res);
   } //end of doPost()
 }
