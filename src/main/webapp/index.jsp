@@ -15,7 +15,7 @@
   <div class='header container p-0 w-100 m-0 sticky-top mw-none'>
     <div class='row py-2'>
       <div class='col-lg-2' onclick="window.location = '/'">
-        <img class='float-right pointer' height='40px' src='/gmu-logo.png' alt='George Mason University logo' />
+        <img class='float-right pointer' height='40px' src='./gmu-logo.png' alt='George Mason University logo' />
       </div>
       <div class='col-lg-5 pt-2' onclick="window.location = '/'">
         <h4 class='pointer'>
