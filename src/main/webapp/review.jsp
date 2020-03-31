@@ -22,7 +22,7 @@
       <h4 class='pointer'>GMU Parking Lot Reviewer</h4>
     </div>
     <div class='col-lg-4 pr-5 pt-1'>
-      <button class='float-right mt-0 mr-3 btn btn-success' onclick='location.reload()'>
+      <button class='float-right mt-0 mr-3 btn btn-success' onclick='window.location = "/"'>
         New review +
       </button>
     </div>
