@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
          pageEncoding="US-ASCII"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 
 <head>
@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <title>GMU Parking Lot Reviews and Ratings | George Mason University</title>
   <link href="./gmu-logo.png" rel="shortcut icon">
-  <link href="${pageContext.request.contextPath}/style.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -309,6 +309,6 @@
 
 </body>
 
-<script src="${pageContext.request.contextPath}/app.js"></script>
+<script src="./app.js" ></script>
 
 </html>
