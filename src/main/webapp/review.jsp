@@ -8,7 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <title>GMU Parking Lot Reviews and Ratings | George Mason University</title>
   <link rel="shortcut icon" href="./gmu-logo.png">
-  <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,6 +48,92 @@
 </div>
 
 </body>
+
+<style>
+  body {
+    margin: 0;
+  }
+  .header {
+    background: gray;
+    color: white;
+  }
+  .footer {
+    height: 120px;
+
+  }
+  .lot-list-container {
+    background: #efefef;
+    color: green;
+    overflow: scroll;
+    width: 100%;
+  }
+  .lot-list-container::-webkit-scrollbar {
+    display: none;
+  }
+  .rating-list {
+    background: #efefef;
+    color: white;
+  }
+  .active-lot {
+    background: green;
+    margin: -10px;
+    padding-top: 10px;
+    color: white !important;
+  }
+  .active-rating {
+    background: yellow;
+    margin: -10px;
+    color: black;
+    padding-top: 10px;
+  }
+  .center {
+    margin: 0 auto !important;
+  }
+  .b-lightgray {
+    background: #efefef;
+  }
+  .mw-none {
+    max-width: none !important;
+  }
+  .col.d-inline {
+    font-size: 17pt;
+    color: green;
+  }
+  .col.d-inline:hover {
+    background: #def310;
+    color: green;
+    margin: -10px;
+    padding-top: 10px;
+    cursor: pointer;
+  }
+  .component-shadow {
+    box-shadow: 0 1px 6px #09a00e8c;
+  }
+  .side-shadow {
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 12px 0 15px -4px #108619cc, -12px 0 15px -4px #108619cc;
+  }
+  .required:after {
+    content:" *";
+    color: red;
+  }
+  .pointer {
+    cursor: pointer !important;
+  }
+  input[type='checkbox'] {
+    cursor: pointer !important;
+  }
+  .progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+  }
+  .progress-bar {
+    height: 8px;
+    background: #4caf50;
+    width: 5%;
+  }
+
+</style>
 
 </html>
 
