@@ -28,30 +28,8 @@ public class EchoServlet extends HttpServlet
     res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
 
      PrintWriter pw = res.getWriter();
-
-     String para;
-     Enumeration paraNames = req.getParameterNames();
-
-     StringBuilder responseStr = new StringBuilder("{");
-
-     while (paraNames.hasMoreElements())
-     {  // For each parameter name.
-       para = (String)paraNames.nextElement();
-       if (!para.equalsIgnoreCase("submit"))
-       {
-         responseStr.append("\"" + para + "\"");
-
-         String[] values = req.getParameterValues(para);
-
-         if (values != null && !values[0].equals(""))
-           responseStr.append(":\"" + values[0] + "\",");
-         else
-           responseStr.append(":null,");
-       }
-     }
-     responseStr.append("}");
-
-     pw.println(responseStr);
+      String payloadRequest = getBody(req);
+     pw.println(payloadRequest);
      pw.close();
   } //end of doPost()
 
@@ -65,4 +43,38 @@ public class EchoServlet extends HttpServlet
     res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
     res.setStatus(HttpServletResponse.SC_OK);
   } //end of doOptions()
+
+  public static String getBody(HttpServletRequest request) throws IOException {
+
+    String body = null;
+    StringBuilder stringBuilder = new StringBuilder();
+    BufferedReader bufferedReader = null;
+
+    try {
+        InputStream inputStream = request.getInputStream();
+        if (inputStream != null) {
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            char[] charBuffer = new char[128];
+            int bytesRead = -1;
+            while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
+                stringBuilder.append(charBuffer, 0, bytesRead);
+            }
+        } else {
+            stringBuilder.append("");
+        }
+    } catch (IOException ex) {
+        throw ex;
+    } finally {
+        if (bufferedReader != null) {
+            try {
+                bufferedReader.close();
+            } catch (IOException ex) {
+                throw ex;
+            }
+        }
+    }
+
+    body = stringBuilder.toString();
+    return body;
+}
 }
