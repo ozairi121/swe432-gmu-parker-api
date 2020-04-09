@@ -1,7 +1,6 @@
 package servlet;
 
-import java.io.PrintWriter;
-import java.io.IOException;
+import java.io.*
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
