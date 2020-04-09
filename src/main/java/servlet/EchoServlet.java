@@ -76,6 +76,6 @@ public class EchoServlet extends HttpServlet
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
-    res.setStatus(HttpServletResponse.SC_OK)
+    res.setStatus(HttpServletResponse.SC_OK);
   } //end of doOptions()
 }
