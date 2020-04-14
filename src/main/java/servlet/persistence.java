@@ -71,7 +71,7 @@ public class persistence extends HttpServlet{
           age = "";
         }
         else if(weightInteger<1){
-          error+= "<li>Age must be an integer greater than 0.</li>";
+          error+= "<li>Weight must be an integer greater than 0.</li>";
           age = "";
         }else{
           if(ageInteger>150){
@@ -154,7 +154,7 @@ public class persistence extends HttpServlet{
       out.println("</ol>");
     }
 
-    out.print  ("<form name=\"persist2file\" method=\"post\"");
+    out.print  ("<form name=\"file\" method=\"post\"");
     out.println(" action=\""+Domain+Path+Servlet+"\">");
     out.println("");
     out.println(" <table>");
