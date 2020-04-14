@@ -1,0 +1,54 @@
+[
+  {
+    "user": "ballerific123",
+    "time": 1586814353692,
+    "lot": 1,
+    "lotName": "Lot J",
+    "rating": 3,
+    "morningTraffic": "Very",
+    "afternoonTraffic": "Very",
+    "eveningTraffic": "Kinda",
+    "parkingSize": "Truck",
+    "gymConvenience": "Very",
+    "arenaConvenience": "Very"
+  },
+  {
+    "user": "ocho942",
+    "time": 1578951985000,
+    "lot": 2,
+    "lotName": "Lot A",
+    "rating": 5,
+    "morningTraffic": "Very",
+    "afternoonTraffic": "Very",
+    "eveningTraffic": "Kinda",
+    "parkingSize": "Truck",
+    "gymConvenience": "Very",
+    "arenaConvenience": "Very"
+  },
+  {
+    "user": "billy123",
+    "time": 1578951985000,
+    "lot": 2,
+    "lotName": "Shenandoah",
+    "rating": 5,
+    "morningTraffic": "Very",
+    "afternoonTraffic": "Very",
+    "eveningTraffic": "Kinda",
+    "parkingSize": "Truck",
+    "gymConvenience": "Very",
+    "arenaConvenience": "Very"
+  },
+  {
+    "user": "tom30",
+    "time": 1578951985000,
+    "lot": 6,
+    "lotName": "Lot I",
+    "rating": 1,
+    "morningTraffic": "Very",
+    "afternoonTraffic": "Very",
+    "eveningTraffic": "Kinda",
+    "parkingSize": "Truck",
+    "gymConvenience": "Very",
+    "arenaConvenience": "Very"
+  }
+]
