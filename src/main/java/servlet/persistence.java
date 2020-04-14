@@ -130,6 +130,9 @@ public class persistence extends HttpServlet{
   private void PrintBody (PrintWriter out, String name, String age, String error){
     out.println("<body onLoad=\"setFocus()\">");
     out.println("<p>");
+    out.println("@author: Omar Zairi");
+    out.println("</p>");
+    out.println("<p>");
     out.println("A simple example that demonstrates how to persist data to a file");
     out.println("</p>");
 
