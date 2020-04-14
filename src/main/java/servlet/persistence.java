@@ -113,7 +113,7 @@ public class persistence extends HttpServlet{
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
     PrintHead(out);
-    PrintBody(out, "", "", "");
+    PrintBody(out, "", "", "", "");
     PrintTail(out);
   }
 
@@ -138,7 +138,7 @@ public class persistence extends HttpServlet{
   /** *****************************************************
    *  Prints the <BODY> of the HTML page
    ********************************************************* */
-  private void PrintBody (PrintWriter out, String name, String age, String error){
+  private void PrintBody (PrintWriter out, String name, String age, String weight, String error){
     out.println("<body onLoad=\"setFocus()\">");
     out.println("<p>");
     out.println("@author: Omar Zairi");
