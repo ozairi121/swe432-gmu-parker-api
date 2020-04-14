@@ -89,12 +89,12 @@ public class persistence extends HttpServlet{
     PrintWriter out = response.getWriter();
 
     if (error.length() == 0){
-      PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-      entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+      PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(getServletContext().getRealPath("") + RESOURCE_FILE, true), true);
+      entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+weight);
       entriesPrintWriter.close();
 
       PrintHead(out);
-      PrintResponseBody(out, RESOURCE_FILE);
+      PrintResponseBody(out, getServletContext().getRealPath("") + RESOURCE_FILE);
       PrintTail(out);
     }else{
       PrintHead(out);
