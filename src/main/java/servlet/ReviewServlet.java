@@ -59,6 +59,7 @@ public class ReviewServlet extends HttpServlet
        Object obj = jsonParser.parse(reader);
        JSONArray reviewList = (JSONArray) obj;
 
+
        res.setContentType("application/json");
        res.setCharacterEncoding("UTF-8");
        pw.println(reviewList.toJSONString());
@@ -82,12 +83,24 @@ public class ReviewServlet extends HttpServlet
      PrintWriter pw = res.getWriter();
      Gson gson = new Gson();
 
-     Review person = gson.fromJson(req.getReader(), Review.class);
-     person.date = new Date().getTime();
+     // Put request body into the review object
+     Review newReview = gson.fromJson(req.getReader(), Review.class);
+
+     // Set created time
+     newReview.date = new Date().getTime();
+
+     // Validate
+     boolean validated = newReview.validate();
+
+     if (!validated) {
+       pw.println("Error: Unable to process the new review. Check that all data sent is valid.");
+     } else {
+       pw.println(gson.toJson(newReview));
+     }
 
      res.setContentType("application/json");
      res.setCharacterEncoding("UTF-8");
-     pw.println(gson.toJson(person));
      pw.close();
+
   }
 }
