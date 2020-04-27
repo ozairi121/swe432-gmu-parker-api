@@ -1,26 +1,19 @@
 package servlet;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Map;
+import java.io.*;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.$Gson$Types;
+import com.google.gson.stream.JsonWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 @WebServlet(
         name = "ReviewServlet",
@@ -54,7 +47,6 @@ public class ReviewServlet extends HttpServlet
      JSONParser jsonParser = new JSONParser();
      try
      {
-       System.out.println( getServletContext().getRealPath(""));
        FileReader reader = new FileReader(getServletContext().getRealPath("")+"reviews.json");
        Object obj = jsonParser.parse(reader);
        JSONArray reviewList = (JSONArray) obj;
@@ -83,24 +75,63 @@ public class ReviewServlet extends HttpServlet
      PrintWriter pw = res.getWriter();
      Gson gson = new Gson();
 
-     // Put request body into the review object
-     Review newReview = gson.fromJson(req.getReader(), Review.class);
+     try {
 
-     // Set created time
-     newReview.date = new Date().getTime();
+       // Put request body into the review object
+       Review newReview = gson.fromJson(req.getReader(), Review.class);
 
-     // Validate
-     boolean validated = newReview.validate();
+       // Set created time
+       newReview.date = new Date().getTime();
 
-     if (!validated) {
-       pw.println("Error: Unable to process the new review. Check that all data sent is valid.");
-     } else {
-       pw.println(gson.toJson(newReview));
+       // Validate
+       boolean validated = newReview.validate();
+
+       if (!validated) {
+         pw.println("Error: Unable to process the new review. Check that all data sent is valid.");
+       } else {
+         boolean reviewAdded = addReview(newReview);
+         if (!reviewAdded) {
+           pw.println("Error: Unable to process the new review. Check that all data sent is valid.");
+           return;
+         }
+         pw.println(gson.toJson(newReview));
+       }
+
+     } catch (Exception e) {
+        pw.println("Error: Unable to process the new review.");
      }
 
      res.setContentType("application/json");
      res.setCharacterEncoding("UTF-8");
      pw.close();
 
+  }
+
+  protected boolean addReview  (Review newReview)
+    throws ServletException, IOException
+  {
+    JSONParser jsonParser = new JSONParser();
+    try
+    {
+      FileReader reader = new FileReader(getServletContext().getRealPath("")+"reviews.json");
+      Object obj = jsonParser.parse(reader);
+      JSONArray reviewList = (JSONArray) obj;
+      reader.close();
+
+      JSONObject newReviewObject = (JSONObject) jsonParser.parse(new Gson().toJson(newReview,  Review.class));
+
+      JSONArray updatedReviewList = new JSONArray();
+      updatedReviewList.add(newReviewObject);
+      updatedReviewList.addAll(reviewList);
+
+      FileWriter writer = new FileWriter(new File(getServletContext().getRealPath("")+"reviews.json"));
+      writer.write(updatedReviewList.toString());
+      writer.close();
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      return false;
+    }
+    return true;
   }
 }

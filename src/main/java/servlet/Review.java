@@ -34,6 +34,8 @@ public class Review {
       add("Rappahannock River");
     }};
 
+    if (this.user.isEmpty())
+      return false;
     if (lot > 10 || lot < 1 || rating < 1 || rating > 5)
       return false;
     if (!validationList.contains(this.lotName))
