@@ -8,6 +8,8 @@ public class Review {
   int lot;
   String lotName;
   int rating;
+  int vehicleType;
+  String vehicleName;
   String morningTraffic;
   String afternoonTraffic;
   String eveningTraffic;
@@ -32,11 +34,19 @@ public class Review {
       add("PV Lot");
       add("Shenandoah");
       add("Rappahannock River");
+      add("Compact");
+      add("Regular");
+      add("SUV/Truck");
+      add("Motorcycle");
     }};
 
     if (this.user.isEmpty())
       return false;
-    if (lot > 10 || lot < 1 || rating < 1 || rating > 5)
+    if (this.lot > 10 || this.lot < 1
+      || this.rating < 1 || this.rating > 5
+      || this.vehicleType < 1 || this.vehicleType > 4)
+      return false;
+    if (!validationList.contains(this.vehicleName))
       return false;
     if (!validationList.contains(this.lotName))
       return false;
