@@ -53,9 +53,6 @@ public class AuthServlet extends HttpServlet
     }
     else {
       out.print(true);
-      // set token
-      Cookie myCookie = new Cookie("user", "username");
-      response.addCookie(myCookie);
       session.setAttribute("user", username);
       resObj.put("success", true);
       out.println(resObj.toJSONString());
