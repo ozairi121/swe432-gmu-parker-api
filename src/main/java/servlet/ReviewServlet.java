@@ -79,6 +79,11 @@ public class ReviewServlet extends HttpServlet
 
        // Put request body into the review object
        Review newReview = gson.fromJson(req.getReader(), Review.class);
+       String username = req.getParameter("user");
+
+       // add session user to review
+       if (username != null)
+         newReview.user = username;
 
        // Set created time
        newReview.time = new Date().getTime();
@@ -91,7 +96,7 @@ public class ReviewServlet extends HttpServlet
        } else {
          boolean reviewAdded = addReview(newReview);
          if (!reviewAdded) {
-           pw.println("Error: Unable to process the new review. Check that all data sent is valid.");
+           pw.println("Error: Unable to add new review.");
            return;
          }
          pw.println(gson.toJson(newReview));
@@ -107,6 +112,9 @@ public class ReviewServlet extends HttpServlet
 
   }
 
+  /*
+   Adds the new review to the json list in reviews.json
+   */
   protected boolean addReview  (Review newReview)
     throws ServletException, IOException
   {
