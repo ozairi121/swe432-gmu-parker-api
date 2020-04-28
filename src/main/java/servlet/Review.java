@@ -16,7 +16,7 @@ public class Review {
   String parkingSize;
   String arenaConvenience;
   String gymConvenience;
-  long date;
+  long time;
 
   boolean validate() {
     List<String> validationList = new ArrayList<String>() {{
