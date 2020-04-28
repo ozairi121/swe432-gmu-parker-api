@@ -81,7 +81,7 @@ public class ReviewServlet extends HttpServlet
        Review newReview = gson.fromJson(req.getReader(), Review.class);
 
        // Set created time
-       newReview.date = new Date().getTime();
+       newReview.time = new Date().getTime();
 
        // Validate
        boolean validated = newReview.validate();
