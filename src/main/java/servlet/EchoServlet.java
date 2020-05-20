@@ -1,5 +1,8 @@
 package servlet;
 
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+
 import java.io.*;
 import java.util.Enumeration;
 
@@ -18,6 +21,35 @@ import javax.servlet.http.HttpServletResponse;
 public class EchoServlet extends HttpServlet
 {
   @Override
+  protected void doGet  (HttpServletRequest req, HttpServletResponse res)
+    throws ServletException, IOException
+  {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
+    res.setStatus(HttpServletResponse.SC_OK);
+
+    PrintWriter pw = res.getWriter();
+    JSONParser jsonParser = new JSONParser();
+    try
+    {
+      FileReader reader = new FileReader(getServletContext().getRealPath("")+"reviews.json");
+      Object obj = jsonParser.parse(reader);
+      JSONArray reviewList = (JSONArray) obj;
+
+
+      res.setContentType("application/json");
+      res.setCharacterEncoding("UTF-8");
+      pw.println(reviewList.toJSONString());
+      pw.close();
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
    protected void doPost  (HttpServletRequest req, HttpServletResponse res)
           throws ServletException, IOException
    {
@@ -27,7 +59,7 @@ public class EchoServlet extends HttpServlet
     res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
 
      PrintWriter pw = res.getWriter();
-      String payloadRequest = getBody(req);
+     String payloadRequest = getBody(req);
      pw.println(payloadRequest);
      pw.close();
   } //end of doPost()
