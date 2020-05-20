@@ -37,6 +37,12 @@ public class PredicateServlet extends HttpServlet
   protected void doPost  (HttpServletRequest req, HttpServletResponse res)
     throws ServletException, IOException
   {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
+    res.setStatus(HttpServletResponse.SC_OK);
+
     PrintWriter pw = res.getWriter();
     Gson gson = new Gson();
     try {
