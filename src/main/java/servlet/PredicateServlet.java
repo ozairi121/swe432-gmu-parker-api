@@ -37,20 +37,10 @@ public class PredicateServlet extends HttpServlet
   protected void doPost  (HttpServletRequest req, HttpServletResponse res)
     throws ServletException, IOException
   {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Max-Age", "86400"); // probably optional
-    res.setStatus(HttpServletResponse.SC_OK);
-
     PrintWriter pw = res.getWriter();
     Gson gson = new Gson();
-
     try {
-
-      // Put request body into the review object
       Predicate newPredicate = gson.fromJson(req.getReader(), Predicate.class);
-
       String[] variables = newPredicate.variables;
       String[] operators = newPredicate.operators;
       printTruthTable(variables.length, 0, new int[variables.length], operators, res);
@@ -58,18 +48,14 @@ public class PredicateServlet extends HttpServlet
       e.printStackTrace();
       pw.println("Error: Unable to process the new review.");
     }
-//
-//    res.setContentType("text/html");
-//    res.setCharacterEncoding("UTF-8");
-    pw.close();
 
+    pw.close();
   }
 
-
   public void printTruthTable(int N, int index, int[] truthVals, String[] clauses, HttpServletResponse res)
-    throws ServletException, IOException {
+    throws ServletException, IOException
+  {
     PrintWriter pw = res.getWriter();
-
     if (index == N) {
       int i = 0;
       pw.println("<tr>");
